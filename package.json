@@ -1,0 +1,15 @@
+{
+  "name": "tailwind-static",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@vercel/edge": "^1.1.1",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "typescript": "^5.3.3",
+    "vercel": "^33.5.1"
+  }
+}
