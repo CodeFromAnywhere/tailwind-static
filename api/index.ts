@@ -439,6 +439,7 @@ export const GET = async (req: Request) => {
   }
 
   try {
+    // TODO: this thing is actually NOT the entire address!!!! just the origin of the url. it must be to get the HTML content.
     const origin = req.headers.get("Referer");
     let html = "";
     console.log({ origin });
