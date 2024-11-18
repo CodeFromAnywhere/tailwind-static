@@ -439,7 +439,7 @@ export const GET = async (req: Request) => {
   }
 
   try {
-    const origin = req.headers.get("Origin");
+    const origin = req.headers.get("Referer");
     let html = "";
     console.log({ origin });
     if (origin) {
