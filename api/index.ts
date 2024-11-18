@@ -29,16 +29,14 @@ export async function generateTailwindCSS(
 
   const tailwindPlugin = tailwindcss(config);
 
-  console.log({ css, tailwindPlugin });
-
   const result = await postcss([tailwindPlugin]).process(css, {
     from: undefined,
   });
-  console.log({ result });
+
   return result.css;
 }
 
-export default async function handler(req: Request) {
+export const GET = async (req: Request) => {
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -51,12 +49,7 @@ export default async function handler(req: Request) {
   }
 
   try {
-    const origin = Object.fromEntries(
-      Object.entries(req.headers).map(([key, value]) => [
-        key.toLowerCase(),
-        value,
-      ]),
-    )["origin"];
+    const origin = req.headers.get("Origin");
     let html = "";
     console.log({ origin });
     if (origin) {
@@ -72,6 +65,8 @@ export default async function handler(req: Request) {
 
     const css = await generateTailwindCSS(html, origin);
 
+    console.log("GOT CSS:", css.length);
+
     return new Response(css, {
       headers: {
         "Content-Type": "text/css",
@@ -83,4 +78,4 @@ export default async function handler(req: Request) {
     console.error("Error:", error);
     return new Response("Internal Server Error", { status: 500 });
   }
-}
+};
