@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Static - The Future of Styling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-lg z-50 border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#"
+                        class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Tailwind Static
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Documentation</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">GitHub</a>
+                    <a href="#" class="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+                <button class="md:hidden p-2" id="mobileMenuButton">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobileMenu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+                <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Documentation</a>
+                <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">GitHub</a>
+                <a href="#" class="block px-3 py-2 bg-gray-900 text-white rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-16">
+        <div class="relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Style with Confidence
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    The most efficient way to style your websites. Zero runtime, maximum performance.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#"
+                        class="bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-800 transition-colors">
+                        Get Started
+                    </a>
+                    <a href="#"
+                        class="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition-colors">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Background pattern -->
+            <div class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-purple-50 to-transparent -z-10"></div>
+            <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-blue-50 to-transparent -z-10"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <span
+                        class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        Tailwind Static
+                    </span>
+                    <p class="mt-4 text-gray-600">
+                        Making the web faster, one style at a time.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Documentation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">GitHub</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Release Notes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">About</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <p class="text-center text-gray-600">
+                    © 2024 Tailwind Static. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
