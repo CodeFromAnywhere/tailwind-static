@@ -6,8 +6,6 @@ The idea is simple: use `<script src="https://cdn.tailwindstatic.com" />` in you
 
 # Insight
 
-after having done this I'm only seeing that https://cdn.tailwindcss.com is actuallly a JS file. LOL! Epic failure. That means likely that it is reading the entire website on-demand i guess.
+After having done this I'm only seeing that https://cdn.tailwindcss.com is actuallly a JS file. LOL! Missed that. That means likely that it is reading the entire website on-demand i guess already, so the advantage to doing it on the backend and then serve a CSS is minimal. The only advantage would be that it maybe faster on subsequent requests (if it's cached via CDN)
 
-maybe this isn't neeeded after all
-
-NVM!
+The problem now I'm running into is that the 'referer' header is actually only the origin part of the URL but we need the entire URL of the static html file!
